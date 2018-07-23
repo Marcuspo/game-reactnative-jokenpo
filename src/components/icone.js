@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 
 import styles from '../../App';
-import App from '../../App';
 
 class Icone extends Component{
     render() {
@@ -36,5 +35,15 @@ class Icone extends Component{
       }
     }
 }
+
+const styles = StyleSheet.create({
+   icone: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  txtJogador: {
+    fontSize: 15
+  }
+});
   
 export default Icone;

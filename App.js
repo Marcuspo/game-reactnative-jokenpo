@@ -121,14 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     color: 'red',
-    height: 60,
-  },
-  icone: {
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  txtJogador: {
-    fontSize: 15
+    height: 60
   }
 }); 
 
