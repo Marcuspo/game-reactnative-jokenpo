@@ -13,84 +13,82 @@ export default class App extends Component {
   }
   
   jokenpo(escolhaUsuario) {
-
-    var numAleatorio = Math.floor(Math.random() * 3);
-
-    var escolhaComputador = '';
+    const numAleatorio = Math.floor(Math.random() * 3);
+    let escolhaComputador = '';
 
     switch (numAleatorio) {
       case 0: escolhaComputador = 'Pedra'; break;
       case 1: escolhaComputador = 'Papel'; break;
       case 2: escolhaComputador = 'Tesoura'; break;
+      default: escolhaComputador = '';
     }
 
-    var resultado = '';
+    let resultado = '';
 
-    if (escolhaComputador == 'Pedra') {
-      if (escolhaUsuario == 'Pedra') {
+    if (escolhaComputador === 'Pedra') {
+      if (escolhaUsuario === 'Pedra') {
         resultado = 'Empate';
       }
-      if (escolhaUsuario == 'Papel'){
+      if (escolhaUsuario === 'Papel') {
         resultado = 'Você ganhou';
       }
-      if (escolhaUsuario == 'Tesoura') {
+      if (escolhaUsuario === 'Tesoura') {
         resultado = 'Você perdeu';
       }
     }
-      if (escolhaComputador == 'Papel') { 
-        if (escolhaUsuario == 'Pedra') {
+      if (escolhaComputador === 'Papel') { 
+        if (escolhaUsuario === 'Pedra') {
           resultado = 'Você perdeu';
         }
-        if (escolhaUsuario == 'Papel') {
+        if (escolhaUsuario === 'Papel') {
           resultado = 'Empate';
         }
-        if (escolhaUsuario == 'Tesoura')
-        resultado = 'Você ganhou';
+        if (escolhaUsuario === 'Tesoura') {
+          resultado = 'Você ganhou';
+        }
       }
     
-    if (escolhaComputador == 'Tesoura') {
-      if (escolhaUsuario == 'Pedra') { 
+    if (escolhaComputador === 'Tesoura') {
+      if (escolhaUsuario === 'Pedra') { 
         resultado = 'Você ganhou';
       }
-      if (escolhaUsuario == 'Papel') { 
+      if (escolhaUsuario === 'Papel') { 
         resultado = 'Você perdeu';
       }
-      if (escolhaUsuario == 'Tesoura') {
+      if (escolhaUsuario === 'Tesoura') {
         resultado = 'Empate';
       }
      } 
 
     this.setState({
-      escolhaUsuario: escolhaUsuario,
-      escolhaComputador: escolhaComputador,
-    resultado: resultado });
+      escolhaUsuario, escolhaComputador, resultado });
 }
 
-render(){ 
+render() { 
   return (
     <View style={styles.fundo}>
 
-      <Topo> </Topo>
+      <Topo />
 
       <View style={styles.painelAcoes}> 
         
         <View style={styles.btnescolha}>
-          <Button title="Pedra" onPress={() => { this.jokenpo('Pedra') }} />
+          <Button title="Pedra" onPress={() => { this.jokenpo('Pedra'); }} />
         </View>    
         
         <View style={styles.btnescolha}>
-          <Button title="Papel" onPress={() => { this.jokenpo('Papel') }} />
+          <Button title="Papel" onPress={() => { this.jokenpo('Papel'); }} />
         </View>   
         
         <View style={styles.btnescolha}>
-          <Button title="Tesoura" onPress={() => { this.jokenpo('Tesoura') }} />
+          <Button title="Tesoura" onPress={() => { this.jokenpo('Tesoura'); }} />
         </View>        
       </View>
       
       <View style={styles.palco}>
 
-        <Icone escolha={this.state.escolhaComputador} jogador={'Escolha computador:'}></Icone>
-        <Icone escolha={this.state.escolhaUsuario} jogador={'Escolha usuário: '}></Icone>
+        <Icone escolha={this.state.escolhaComputador} jogador={'Escolha computador:'} />
+        <Icone escolha={this.state.escolhaUsuario} jogador={'Escolha usuário: '} />
 
         <Text style={styles.txtResultado}> {this.state.resultado} </Text>
         
